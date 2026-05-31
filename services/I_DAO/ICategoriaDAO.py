@@ -3,4 +3,21 @@ from abc import ABC, abstractmethod
 class ICategoriaDAO(ABC):
 
     @abstractmethod
-    def incluir(self, categoria)
+    def incluir(self, categoria: Categoria) -> Categoria:
+        pass
+
+    @abstractmethod
+    def alterfar(self, categoria: Categoria) -> Categoria: 
+        pass
+
+    @abstractmethod
+    def excluir (self, categoria: Categoria):
+        pass
+
+    @abstractmethod 
+    def obter_por_id(self, id : int) -> Categoria:
+        pass
+
+    @abstractmethod
+    def listar(self) -> list[Categoria]:
+        pass
