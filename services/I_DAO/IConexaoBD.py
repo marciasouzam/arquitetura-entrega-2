@@ -10,10 +10,9 @@ class IConexaoDAO(ABC):
     def executar_comando(self, sql_comando: str, commit: boolean) -> Any
         pass
 
-    @abstractmethod 
-    def executar_select (self, sql_select) -> list[Any]:
+    @abstractmethod
+    def executar_select(self, sql_select) -> list[Any]:
         pass
-
 
 
 
