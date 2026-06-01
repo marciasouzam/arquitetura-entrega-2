@@ -12,7 +12,7 @@ class ProdutoDAO(IProdutoDAO): #herdando a interface
     def incluir (self, produto: Produto) -> Produto:
         sql = f''' INSERT INTO Produto (descricao, preco_unitario, quantidade_estoque, categoria_id)
         VALUES ('{produto.descricao}', {produto.preco_unitario}, {produto.quantidade_estoque}, {produto.categoria_id})
-        ''' #mudança no código original do professor para respeitar a interface de excutar_comando utilizada na linha 24
+        ''' 
 
         parametros = ( #não está sendo utilizada
             produto.descricao,
@@ -34,24 +34,22 @@ class ProdutoDAO(IProdutoDAO): #herdando a interface
                 categoria_id = {produto.categoria_id}
             WHERE id = {produto.id}
         '''
-        # Enviando estritamente os 2 argumentos da interface
+ 
         self.conexao.executar_comando(sql, commit=True)
         return produto
         
 
    
     def excluir(self, produto: Produto):
-        # MUDANÇA: Injetando o ID direto na string para remover os parâmetros
+       
         sql = f'''
             DELETE FROM Produto WHERE id = {produto.id}
         '''
-        # Enviando estritamente os 2 argumentos da interface
         self.conexao.executar_comando(sql, commit=True)
         
    
     def obter_por_id(self, id) -> Produto:
 
-       # MUDANÇA: O ID agora entra direto na string SQL do SELECT
         sql = f'''
             SELECT  pro.id,
                     pro.descricao,
@@ -61,7 +59,7 @@ class ProdutoDAO(IProdutoDAO): #herdando a interface
             FROM Produto pro
             WHERE pro.id = {id}
         '''
-        # MUDANÇA: executar_select agora recebe APENAS a string 'sql', sem a tupla (id,)
+        
         registros = self.conexao.executar_select(sql)
         
         if registros:
@@ -94,9 +92,6 @@ class ProdutoDAO(IProdutoDAO): #herdando a interface
             ORDER BY pro.descricao
         '''
 
-        # EXPLICAÇÃO DO RECURSO:
-        # 'self.conexao' é o objeto que pegamos da interface IConexaoBD.
-        # '.executar_select(sql)' é um método que está na interface, mas ainda não foi implementado. 
         registros = self.conexao.executar_select(sql)
         
         lista_produtos = []
