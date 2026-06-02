@@ -1,9 +1,8 @@
 import sqlite3  # IMPORTANTE
 from typing import Any
-from IConexaoBD import IConexaoDAO
+from app.services.I_DAO.IConexaoBD import IConexaoBD
 
-
-class ConexaoSQLite(IConexaoDAO):
+class ConexaoSQLite(IConexaoBD):
 
     # implementações dos métodos da interface
 
