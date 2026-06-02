@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from app.entities.Categoria import Categoria
 
 class ICategoriaDAO(ABC):
 

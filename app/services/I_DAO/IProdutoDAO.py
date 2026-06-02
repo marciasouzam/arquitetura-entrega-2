@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from app.entities.Produto import Produto
 class IProdutoDAO(ABC):
     
     @abstractmethod
@@ -7,7 +7,7 @@ class IProdutoDAO(ABC):
         pass
 
     @abstractmethod
-    def alterar(self, produto: Produto) - > Produto:
+    def alterar(self, produto: Produto) -> Produto:
         pass
 
     @abstractmethod
