@@ -1,20 +1,28 @@
-from typing import List
-from IProdutoDAO import IProdutoDAO
-from models import Categoria
+from abc import ABC, abstractmethod
 
-class IProdutoService:
 
-    def __init__(self, produto_dao: IProdutoDAO):
-        self.produto_dao = produto_dao
+class IProdutoService(ABC):
 
+    @abstractmethod
     def validar(self, produto):
+        pass
 
-    def incluir (self, produto) - > Produto:
+    @abstractmethod
+    def incluir(self, produto) -> object:
+        pass
 
-    def alterar (self, produto) - > Produto:
-    
+    @abstractmethod
+    def alterar(self, produto) -> object:
+        pass
+
+    @abstractmethod
     def excluir(self, produto):
+        pass
 
-    def obter_por_id(self, id):
-    
-    def listar(self) -> list[Produto]:
+    @abstractmethod
+    def obter_por_id(self, id: int) -> object:
+        pass
+
+    @abstractmethod
+    def listar(self) -> list:
+        pass

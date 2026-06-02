@@ -1,18 +1,28 @@
-from typing import List
-from ICategoriaDAO import ICategoriaDAO
-from models import Categoria
+from abc import ABC, abstractmethod
 
-class ICategoriaService:
 
-    def validar(self, produto):
+class ICategoriaService(ABC):
 
-    def incluir (self, produto) - > Produto:
+    @abstractmethod
+    def validar(self, categoria):
+        pass
 
-    def alterar (self, produto) - > Produto:
-    
-    def excluir(self, produto):
+    @abstractmethod
+    def incluir(self, categoria) -> object:
+        pass
 
-    def obter_por_id(self, id):
-    
-    def listar(self) -> list[Produto]:
+    @abstractmethod
+    def alterar(self, categoria) -> object:
+        pass
 
+    @abstractmethod
+    def excluir(self, categoria):
+        pass
+
+    @abstractmethod
+    def obter_por_id(self, id: int) -> object:
+        pass
+
+    @abstractmethod
+    def listar(self) -> list:
+        pass

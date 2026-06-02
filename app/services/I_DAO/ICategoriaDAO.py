@@ -8,7 +8,7 @@ class ICategoriaDAO(ABC):
         pass
 
     @abstractmethod
-    def alterfar(self, categoria: Categoria) -> Categoria:
+    def alterar(self, categoria: Categoria) -> Categoria:
         pass
 
     @abstractmethod
@@ -20,5 +20,5 @@ class ICategoriaDAO(ABC):
         pass
 
     @abstractmethod
-    def listar(self) -> list[Categoria]:
+    def listar(self) -> list:
         pass

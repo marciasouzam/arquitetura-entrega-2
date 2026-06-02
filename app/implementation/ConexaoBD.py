@@ -1,10 +1,9 @@
-import sqlite3  # IMPORTANTE
+import sqlite3
 from typing import Any
 from app.services.I_DAO.IConexaoBD import IConexaoBD
 
-class ConexaoSQLite(IConexaoBD):
 
-    # implementações dos métodos da interface
+class ConexaoBD(IConexaoBD):
 
     def __init__(self, nome_banco: str = "db_solid.sqlite3"):
         self.nome_banco = nome_banco
@@ -23,7 +22,7 @@ class ConexaoSQLite(IConexaoBD):
         if commit:
             conexao.commit()
 
-    def executar_select(self, sql_select) -> list[Any]:
+    def executar_select(self, sql_select) -> list:
         conexao = self.obter_conexao()
         cursor = conexao.cursor()
         cursor.execute(sql_select)

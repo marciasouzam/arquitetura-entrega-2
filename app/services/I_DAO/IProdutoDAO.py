@@ -19,5 +19,5 @@ class IProdutoDAO(ABC):
         pass
 
     @abstractmethod
-    def listar(self) -> list[Categoria]:
+    def listar(self) -> list:
         pass
